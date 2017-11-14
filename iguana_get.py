@@ -5,7 +5,6 @@ Created on Tue Nov 14 2017
 @author: fernando.teixeira
 """
 
-import requests
 
 
 token = 'k2rt3f5'
