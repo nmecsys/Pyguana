@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1510673737784.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "20B7822A",
+    "lastKnownWriteTime" : 1510679156,
+    "last_content_update" : 1510679156145,
+    "path" : "~/pyguana/iguana_uncertainty_get.py",
+    "project_path" : "iguana_uncertainty_get.py",
+    "properties" : {
+        "cursorPosition" : "2,22",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "python"
+}

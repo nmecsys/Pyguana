@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1510673796647.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E1347B67",
+    "lastKnownWriteTime" : 1510679257,
+    "last_content_update" : 1510679257045,
+    "path" : "~/pyguana/iguana_get.py",
+    "project_path" : "iguana_get.py",
+    "properties" : {
+        "cursorPosition" : "19,28",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "python"
+}
