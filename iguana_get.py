@@ -12,6 +12,3 @@ def iguana_get(token=None, fonte=None, datainicio=None, datafim=None, categoria=
         dados_fin = requests.get(dados).json()
 
     return dados_fin['data']
-
-
-teste = iguana_get()
