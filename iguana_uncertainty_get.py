@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 14 13:39:58 2017
+Created on Tue Nov 14 2017
 
 @author: fernando.teixeira
 """
