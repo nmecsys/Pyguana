@@ -1,5 +1,4 @@
 import requests
-import json
 
 
 token = 'k2rt3f5'
@@ -10,9 +9,6 @@ def iguana_get(token=None, fonte=None, datainicio=None, datafim=None, categoria=
     if fonte is None and datainicio is None and datafim is None and categoria is None:
         
         dados = url_base + token
-        dados = requests.get(dados).json()
-        dados = json.loads(dados)
-    return dados
+        dados_fin = requests.get(dados).json()
 
-
-iguana_get(token = token)
+    return dados_fin['data']
