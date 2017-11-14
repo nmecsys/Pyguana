@@ -7,7 +7,6 @@ Created on Tue Nov 14 2017
 
 
 
-token = 'k2rt3f5'
 
 def iguana_get(token=None, fonte=None, datainicio=None, datafim=None, categoria=None):
     url_base = 'http://iguana.incertezalab.com/jornais?token='
