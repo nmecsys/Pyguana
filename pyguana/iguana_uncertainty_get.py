@@ -21,23 +21,23 @@ def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
         
     params = []
     i=1
-    if fonte is not None 
+    if fonte is not None: 
         parans(i) = "&fonte=" + fonte
         i = i +1
-    if datainicio is not None 
+    if datainicio is not None: 
         parans(i) = "&datainicio=" + datainicio
         i = i +1
         
-    if datafim is not None 
+    if datafim is not None: 
         parans(i) = "&datafim=" + datafim
         i = i +1
-    if limite is not None 
+    if limite is not None: 
         parans(i) = "&limite=" + limite
         i = i +1
-    if categoria is not None 
+    if categoria is not None: 
         parans(i) = "&categoria=" + categoria
         i = i +1
-    if nmec is not None 
+    if nmec is not None: 
         parans(i) = "&nmec=" + nmec
         i = i +1    
     
