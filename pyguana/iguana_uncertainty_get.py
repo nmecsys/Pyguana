@@ -5,7 +5,7 @@ Created on Tue Nov 14 2017
 @author: fernando.teixeira
 """
 
-token = 'k2rt3f5'
+
 
 def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
                            datafim=None, categoria=None, nmec=None,
@@ -20,28 +20,29 @@ def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
         
         
     params = []
-    i=1
+
     if fonte is not None: 
-        parans(i) = "&fonte=" + fonte
-        i = i +1
+        params.append("&fonte=" + fonte)
+        
     if datainicio is not None: 
-        parans(i) = "&datainicio=" + datainicio
-        i = i +1
+        params.append("&datainicio=" + datainicio)
+        
         
     if datafim is not None: 
-        parans(i) = "&datafim=" + datafim
-        i = i +1
+        params.append("&datafim=" + datafim)
+
     if limite is not None: 
-        parans(i) = "&limite=" + limite
-        i = i +1
+        params.append("&limite=" + limite)
+
     if categoria is not None: 
-        parans(i) = "&categoria=" + categoria
-        i = i +1
+        params.append("&categoria=" + categoria)
+
     if nmec is not None: 
-        parans(i) = "&nmec=" + nmec
-        i = i +1    
+        params.append("&nmec=" + nmec)
+
     
-    dados = url_base + token + .join(parans)
+    #corrigir esse .join
+    dados = url_base + token + .join(params)
     dados_fin = requests.get(dados).json()    
     if len(output == 3):
         
