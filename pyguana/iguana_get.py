@@ -40,7 +40,7 @@ def iguana_get(token=None, fonte=None, datainicio=None,
     
     if len(output == 3):
         #corrigir esse .join
-        dados = url_base + token + .join(params)
+        dados = url_base + token + .join(str(x) for x in params)
         dados_fin = requests.get(dados).json()
     else:
         if("error" in output):
