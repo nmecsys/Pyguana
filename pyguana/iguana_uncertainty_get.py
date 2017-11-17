@@ -42,7 +42,7 @@ def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
 
     
     #corrigir esse .join
-    dados = url_base + token + .join(params)
+    dados = url_base + token + .join(str(x) for x in params)
     dados_fin = requests.get(dados).json()    
     if len(output == 3):
         
