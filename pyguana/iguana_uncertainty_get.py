@@ -8,8 +8,8 @@ Created on Tue Nov 14 2017
 
 
 def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
-                           datafim=None, categoria=None, nmec=None,
-                           output = ["error","message","data"]):
+                           datafim=None, categoria=None, nmec=None):
+  
     url_base = 'http://iguana.incertezalab.com/incerteza?token='
     
     assert(token is not None), "É preciso inserir um token valido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
@@ -44,12 +44,8 @@ def iguana_uncertainty_get(token=None, fonte=None, datainicio=None,
     #corrigir esse .join
     dados = url_base + token + .join(str(x) for x in params)
     dados_fin = requests.get(dados).json()    
-    if len(output == 3):
+    
         
-    else:
-        if("error" in output):
-        elif("message" in output):
-        elif("data" in output):
         
 
     return dados_fin['data']
