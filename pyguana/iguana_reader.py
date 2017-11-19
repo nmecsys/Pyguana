@@ -6,6 +6,14 @@ Created on Sat Nov 18 18:02:58 2017
 @author: fteixeira
 """
 
+
+
+def iguana_reader(token, start, end, cenario = [1,2,3])
+    
+    assert(token is not None), "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
+    assert(start or end is None), "É necessario passar a janela de data das notícias!" 
+    
+    
 '''
 iguana.reader<-function(token,cenario = c(1,2,3),start,end){
    if(missing(token)){
