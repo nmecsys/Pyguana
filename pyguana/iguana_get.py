@@ -9,7 +9,7 @@ Created on Tue Nov 14 2017
 
 
 def iguana_get(token, fonte=None, datainicio=None, 
-               datafim=None, categoria=None, limite=None)
+               datafim=None, categoria=None, limite=None):
     
     url_base = 'http://iguana.incertezalab.com/jornais?token='
     
@@ -39,9 +39,9 @@ def iguana_get(token, fonte=None, datainicio=None,
     
     
     
-        #corrigir esse .join
-        dados = url_base + token + "".join([str(x) for x in params])
-        dados_fin = requests.get(dados).json()
+    #corrigir esse .join
+    dados = url_base + token + "".join([str(x) for x in params])
+    dados_fin = requests.get(dados).json()
         
     
     
