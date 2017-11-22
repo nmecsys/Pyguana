@@ -6,6 +6,9 @@
 Welcome to pyguana's documentation!
 ===================================
 
+Make R connection with Iguana API.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
