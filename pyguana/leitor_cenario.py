@@ -6,34 +6,47 @@ Created on Sat Nov 19 18:02:23 2017
 @author: fteixeira
 """
 
+import pandas as pd
+import io
+
+
+def leitor(noticis, start_date, end_date, cenario):
+    if cenario == 1:
+        economic_words = ["ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON"]
+        uncertainty_words = ["INCERT","INSTAB","CRISE"]
+        politic_words = ["Govern", "Congress", "President", "Presidên","senado", "deput", "impeachment", "eleição"]
+    elif cenario == 2:
+        economic_words = ["ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON"]
+        uncertainty_words ["INCERT","INSTAB","CRISE"]
+        fiscal_words = ["Déficit", "superávit", "dívida", "fiscal", "orçament", "imposto", "dominância fiscal"]
+    elif cenario == 3:
+        economic_words = ["ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON"]
+        uncertainty_words = ["INCERT","INSTAB","CRISE"]
+        monetary_words = ["BCB", "BACEN","Selic", "Juros", "Copom", "Monet", "Infla","Banco Central"]
+        
+    
+    
+    cols=["id", "date", "n_encontrado", "n_total"]
+    final_data = pd.read_csv(
+        io.StringIO(""), 
+        names=cols, 
+        dtype=dict(zip(cols,[int, str, int, int])), 
+        index_col=['id']
+        )
+    
+    # Ver com Jonatha
+    noticias = x[,2]
+    datas = x[,1]
+    
+    for noticia in noticias:
+        i = 0
+        total = 0
+        total_incerteza = 0
+
 '''
-leitor <- function(noticias,start_date,end_date,cenario){
-
-  if(cenario == 1){
-
-  #Cenário 1:
-    economic_words <- c("ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON")
-    uncertainty_words <- c("INCERT","INSTAB","CRISE")
-    politic_words <- c("Govern", "Congress", "President", "Presidên","senado", "deput", "impeachment", "eleição")
-  }else if(cenario == 2){
-  #Cenário 2:
-      economic_words <- c("ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON")
-    uncertainty_words <- c("INCERT","INSTAB","CRISE")
-    fiscal_words <- c("Déficit", "superávit", "dívida", "fiscal", "orçament", "imposto", "dominância fiscal")
-  }else if(cenario == 3){
-  #Cenário 3:
-    economic_words <- c("ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON")
-    uncertainty_words <- c("INCERT","INSTAB","CRISE")
-    monetary_words <- c("BCB", "BACEN","Selic", "Juros", "Copom", "Monet", "Infla","Banco Central")
-  }
 
 
-  final_data <- data.frame(
-    date = character(),
-    n_encontrado = integer(),
-    n_total = integer()
-
-  )
+ 
   noticias = x[,2]
   datas = x[,1]
   for(i in 1:length(noticias)){
