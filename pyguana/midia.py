@@ -6,7 +6,7 @@ Created on Wed Nov 22 14:00:35 2017
 """
 
 
-import pandas as pd
+
 
 def midia(ano, mes):
     

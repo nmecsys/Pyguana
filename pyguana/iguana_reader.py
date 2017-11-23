@@ -7,7 +7,6 @@ Created on Sat Nov 18 18:02:58 2017
 """
 
 from Pyguana import iguana_get
-import pandas as pd
 from Pyguana import leitor
 
 

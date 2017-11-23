@@ -1,1 +1,2 @@
-from requests import requests
+import requests
+import pandas as pd

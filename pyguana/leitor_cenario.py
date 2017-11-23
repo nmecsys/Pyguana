@@ -6,7 +6,7 @@ Created on Sat Nov 19 18:02:23 2017
 @author: fteixeira
 """
 
-import pandas as pd
+
 import io
 
 

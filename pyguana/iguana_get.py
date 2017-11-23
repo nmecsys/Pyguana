@@ -6,10 +6,13 @@ Created on Tue Nov 14 2017
 """
 
 
-
-
 def iguana_get(token, fonte=None, datainicio=None, 
                datafim=None, categoria=None, limite=None):
+    
+    '''
+    Teste, criando uma docstring.
+    
+    '''
     
     url_base = 'http://iguana.incertezalab.com/jornais?token='
     
