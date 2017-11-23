@@ -10,7 +10,7 @@ from Pyguana import iguana_get
 from Pyguana import leitor
 
 
-def iguana_reader(token, start, end, cenario = [1,2,3])
+def iguana_reader(token, start, end, cenario = [1,2,3]):
     
     assert(token is not None), "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
     assert(start or end is None), "É necessario passar a janela de data das notícias!" 
