@@ -15,7 +15,7 @@ class Iguana:
         self.token = token
 
 
-    def iguana_get(token, fonte=None, datainicio=None, 
+    def get(token, fonte=None, datainicio=None, 
                datafim=None, categoria=None, limite=None):
     
         '''
@@ -61,10 +61,38 @@ class Iguana:
         
         
 
-
+    
+    def uncertainty_get(token=None, fonte=None, datainicio=None,
+                           datafim=None, categoria=None, nmec=None):
+  
+        url_base = 'http://iguana.incertezalab.com/incerteza?token='
+        
+        assert(token is not None), "É preciso inserir um token valido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
+        if fonte is None and datainicio is None and datafim is None and categoria is None:
+            
+            dados = url_base + token
+            dados_fin = requests.get(dados).json()
+            
+            
+        if len(output) == 3:
+            
+            
+        else:
+            
+            if "error" in output:
+            if "message" in output:
+            if "data" in output:
+        
+            
+            
+    
+        return dados_fin['data']
+    
+    
+    
 
         
-    def iguana_reader(token, start, end, cenario = [1,2,3]):
+    def reader(token, start, end, cenario = [1,2,3]):
     
         assert(token is not None), "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
         assert(start or end is None), "É necessario passar a janela de data das notícias!" 
