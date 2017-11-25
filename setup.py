@@ -10,5 +10,5 @@ setup(name='pyguana',
       author_email='fernando.teixeira@fgv.br',
       license='BSD',
       packages=['pyguana'],
-	  install_requires=['requests'],
+	  install_requires=['requests', 'pandas'],
       zip_safe=False)
