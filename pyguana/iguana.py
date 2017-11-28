@@ -32,7 +32,7 @@ class Iguana(object):
         if fonte is None and datainicio is None and datafim is None and categoria is None:
             
             dados = url_base + token
-            dados_fin = requests.get(dados).json()
+
     
         params = []
     
@@ -57,15 +57,15 @@ class Iguana(object):
         #corrigir esse .join
         dados = url_base + token + "".join([str(x) for x in params])
         dados_fin = requests.get(dados).json()
-            
+        dados_fin = pd.DataFrame(dados_fin['data'])    
         
         
-        return dados_fin['data']
+        return dados_fin
 
 
     
     
-    def uncertainty_get(self, token, fonte=None, datainicio=None,
+    def uncertainty_get(self, fonte=None, datainicio=None,
                            datafim=None, categoria=None, nmec=None):
     
         url_base = 'http://iguana.incertezalab.com/incerteza?token='
