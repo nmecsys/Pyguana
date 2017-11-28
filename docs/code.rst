@@ -1,5 +1,7 @@
 Auto Generated Documentation
 ============================
 
-.. automodule:: iguana_get
+.. automodule:: Iguana
+   :members:
+.. automodule:: midia
    :members:

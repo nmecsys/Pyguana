@@ -10,7 +10,26 @@ import pandas as pd
 import requests
 
 
+'''
+    A função get permite que se faça uma requisição à API Iguana, desde que possuindo um token
+    válido, escolhendo todos os parâmetros que se deseja. Pode-se escolher a 'fonte' da notícia,
+    ou seja, o jornal; é também possível delimitar uma data de início de uma de fim para o retorno
+    das notícias e de que maneira ela foi categorizada pelo próprio jornal (em qual caderno a mesma
+    se encontra). Exemplos de categoria seriam 'política', 'economia' ou 'esportes'.
+    
+'''
+
+
 class Iguana(object):
+    
+    '''
+        A função get permite que se faça uma requisição à API Iguana, desde que possuindo um token
+        válido, escolhendo todos os parâmetros que se deseja. Pode-se escolher a 'fonte' da notícia,
+        ou seja, o jornal; é também possível delimitar uma data de início de uma de fim para o retorno
+        das notícias e de que maneira ela foi categorizada pelo próprio jornal (em qual caderno a mesma
+        se encontra). Exemplos de categoria seriam 'política', 'economia' ou 'esportes'.
+        
+    '''
     
     def __init__(self, token):
         """Return a token string whose name is *token*."""
@@ -22,7 +41,11 @@ class Iguana(object):
                datafim=None, categoria=None, limite=None):
     
         '''
-        Teste, criando uma docstring.
+        A função get permite que se faça uma requisição à API Iguana, desde que possuindo um token
+        válido, escolhendo todos os parâmetros que se deseja. Pode-se escolher a 'fonte' da notícia,
+        ou seja, o jornal; é também possível delimitar uma data de início de uma de fim para o retorno
+        das notícias e de que maneira ela foi categorizada pelo próprio jornal (em qual caderno a mesma
+        se encontra). Exemplos de categoria seriam 'política', 'economia' ou 'esportes'.
         
         '''
         
