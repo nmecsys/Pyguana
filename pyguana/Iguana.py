@@ -8,6 +8,7 @@ Created on Tue Nov 23 2017
 
 import pandas as pd
 import requests
+import pyguana
 
 
 '''
@@ -99,59 +100,45 @@ class Iguana(object):
             dados = url_base + token
             dados_fin = requests.get(dados).json()
             
-        '''    
-        if len(output) == 3:
-            print("teste")    
-            
-        else:
-            if "error" in output:
-                print("error")
-            if "message" in output:
-                print("message")
-            if "data" in output:
-                print("data")
-        '''
-            
-            
-    
         return dados_fin['data']
     
     
     
     
 
-    def reader(self, token, start, end, cenario = [1,2,3]):
+    def reader(self, start, end, cenario = [1,2,3]):
         
-        
+        # start='2010-01-01'
+        # end='2011-03-01'
     
         assert(token is not None), "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
         assert(start or end is None), "É necessario passar a janela de data das notícias!" 
         
         ##- valor online
-        valor_online = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "Valor_Economico"))['noticia']
-        valor_online = leitor(valor_online, start_date=start,end_date=end)
+        valor_online = pd.DataFrame(pyguana.Iguana.get(self, datainicio = start,datafim = end,fonte = "Valor_Economico"))['noticia']
+        valor_online = pyguana.leitor(valor_online, start_date=start,end_date=end)
         
         ##- valor impresso    
-        valor_impresso = pd.DataFrame(get(token=token,datainicio = "2012",datafim = "2015",fonte = "Valor_impresso"))['noticia']
-        valor_impresso = leitor(valor_impresso,start_date = start,end_date=end)
+        valor_impresso = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = "2012",datafim = "2015",fonte = "Valor_impresso"))['noticia']
+        valor_impresso = pyguana.leitor(valor_impresso,start_date = start,end_date=end)
         ##- folha online
-        folha_online = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "Folha_online"))['noticia']
-        folha_online = leitor(folha_online,start_date = start,end_date=end)
+        folha_online = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "Folha_online"))['noticia']
+        folha_online = pyguana.leitor(folha_online,start_date = start,end_date=end)
         ##- folha impresso
-        folha_impresso = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "Folha_impresso"))['noticia']
-        folha_impresso = leitor(folha_impresso,start_date = start,end_date=end)
+        folha_impresso = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "Folha_impresso"))['noticia']
+        folha_impresso = pyguana.leitor(folha_impresso,start_date = start,end_date=end)
         ##- @estadao
-        estadao  = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "@estadao"))['noticia']
-        estadao = leitor(estadao,start_date = start,end_date=end)
+        estadao  = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "@estadao"))['noticia']
+        estadao = pyguana.leitor(estadao,start_date = start,end_date=end)
         ##- @correio
-        correio  = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "@correio"))['noticia']
-        correio = leitor(correio,start_date = start,end_date=end)
+        correio  = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "@correio"))['noticia']
+        correio = pyguana.leitor(correio,start_date = start,end_date=end)
         ##- @oglobo
-        oglobo   = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "@oglobo"))['noticia']
-        oglobo = leitor(oglobo,start_date = start,end_date=end)
+        oglobo   = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "@oglobo"))['noticia']
+        oglobo = pyguana.leitor(oglobo,start_date = start,end_date=end)
         ##- @zerohora
-        zerohora = pd.DataFrame(get(token=token,datainicio = start,datafim = end,fonte = "zehora"))['noticia']
-        zerohora = leitor(zerohora,start_date = start,end_date=end)
+        zerohora = pd.DataFrame(pyguana.Iguana.get(token=token,datainicio = start,datafim = end,fonte = "zehora"))['noticia']
+        zerohora = pyguana.leitor(zerohora,start_date = start,end_date=end)
         
         return valor_online
 

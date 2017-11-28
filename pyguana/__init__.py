@@ -3,7 +3,7 @@
 
 from pyguana import leitor
 from pyguana import midia
-from pyguana.iguana import Iguana
+from pyguana.Iguana import Iguana
 
 
 
