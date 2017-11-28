@@ -13,8 +13,8 @@ def midia(ano, mes):
     ## Lendo as séries históricas de mídia
     ## colocar a série histórica no banco de dados
     
-    data_arquivo =
-    total = 
-    incert = 
+    data_arquivo = 1
+    total = 2
+    incert = 3
     
     ## Valor Econômico online

@@ -10,7 +10,7 @@ Created on Sat Nov 19 18:02:23 2017
 import io
 
 
-def leitor(noticis, start_date, end_date, cenario):
+def leitor(noticia, start_date, end_date, cenario):
     if cenario == 1:
         economic_words = ["ECONÔ", "ECONO", "-ECON", "MICROECON", "MACROECON", "SOCIOECON"]
         uncertainty_words = ["INCERT","INSTAB","CRISE"]
@@ -35,8 +35,8 @@ def leitor(noticis, start_date, end_date, cenario):
         )
     
     # Ver com Jonatha
-    noticias = x[,2]
-    datas = x[,1]
+    noticias = noticias[:,2]
+    datas = noticias[:,1]
     
     for noticia in noticias:
         i = 0
@@ -84,5 +84,4 @@ def leitor(noticis, start_date, end_date, cenario):
 
       final_data <- rbind(final_data,new_row)
       return(final_data)
-
-}
+'''
