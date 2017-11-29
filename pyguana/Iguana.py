@@ -8,7 +8,7 @@ Created on Tue Nov 23 2017
 
 import pandas as pd
 import requests
-
+from pyguana import leitor
 
 
 '''
@@ -54,8 +54,8 @@ class Iguana(object):
         
         assert(self.token is not None), ("É preciso inserir um token válido!" +
               "\n Solicite em www.iguana.incertezalab.com/documentation/index.php")
+              
         if fonte is None and datainicio is None and datafim is None and categoria is None:
-            
             dados = url_base + self.token
                 
         params = []
@@ -131,32 +131,33 @@ class Iguana(object):
         assert(start or end is None), "É necessario passar a janela de data das notícias!" 
         
         ##- valor online
-        valor_online = pd.DataFrame(pyguana.Iguana.get(self, datainicio = start,datafim = end,fonte = "Valor_Economico"))['noticia']
-        valor_online = pyguana.leitor(valor_online, start_date=start,end_date=end)
+        valor_online = Iguana.get(self, datainicio = start,datafim = end,fonte = "Valor_Economico")['noticia']
+        valor_online = leitor(valor_online, start_date=start,end_date=end)
         
         ##- valor impresso    
-        valor_impresso = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = "2012",datafim = "2015",fonte = "Valor_impresso"))['noticia']
-        valor_impresso = pyguana.leitor(valor_impresso,start_date = start,end_date=end)
+        valor_impresso = Iguana.get(self.token,datainicio = "2012",datafim = "2015",fonte = "Valor_impresso")['noticia']
+        valor_impresso = leitor(valor_impresso,start_date = start,end_date=end)
         ##- folha online
-        folha_online = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "Folha_online"))['noticia']
-        folha_online = pyguana.leitor(folha_online,start_date = start,end_date=end)
+        folha_online = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "Folha_online")['noticia']
+        folha_online = leitor(folha_online,start_date = start,end_date=end)
         ##- folha impresso
-        folha_impresso = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "Folha_impresso"))['noticia']
-        folha_impresso = pyguana.leitor(folha_impresso,start_date = start,end_date=end)
+        folha_impresso = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "Folha_impresso")['noticia']
+        folha_impresso = leitor(folha_impresso,start_date = start,end_date=end)
         ##- @estadao
-        estadao  = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@estadao"))['noticia']
-        estadao = pyguana.leitor(estadao,start_date = start,end_date=end)
+        estadao  = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@estadao")['noticia']
+        estadao = leitor(estadao,start_date = start,end_date=end)
         ##- @correio
-        correio  = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@correio"))['noticia']
-        correio = pyguana.leitor(correio,start_date = start,end_date=end)
+        correio  = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@correio")['noticia']
+        correio = leitor(correio,start_date = start,end_date=end)
         ##- @oglobo
-        oglobo   = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@oglobo"))['noticia']
-        oglobo = pyguana.leitor(oglobo,start_date = start,end_date=end)
+        oglobo   = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "@oglobo")['noticia']
+        oglobo = leitor(oglobo,start_date = start,end_date=end)
         ##- @zerohora
-        zerohora = pd.DataFrame(pyguana.Iguana.get(self.token,datainicio = start,datafim = end,fonte = "zehora"))['noticia']
-        zerohora = pyguana.leitor(zerohora,start_date = start,end_date=end)
+        zerohora = Iguana.get(self.token,datainicio = start,datafim = end,fonte = "zehora")['noticia']
+        zerohora = leitor(zerohora,start_date = start,end_date=end)
         
-        return valor_online
+        return (valor_online, valor_impresso, folha_impresso, estadao, correio,
+                oglobo, zerohora)
 
 
 
