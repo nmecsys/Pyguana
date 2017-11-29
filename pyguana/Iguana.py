@@ -52,13 +52,12 @@ class Iguana(object):
         
         url_base = 'http://iguana.incertezalab.com/jornais?token='
         
-        assert(self.token is not None), "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
+        assert(self.token is not None), ("É preciso inserir um token válido!" +
+              "\n Solicite em www.iguana.incertezalab.com/documentation/index.php")
         if fonte is None and datainicio is None and datafim is None and categoria is None:
             
             dados = url_base + self.token
-            if dados.empty == True:
-                return "É preciso inserir um token válido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
-    
+                
         params = []
     
         if fonte is not None: 
@@ -82,8 +81,23 @@ class Iguana(object):
         #corrigir esse .join
         dados = url_base + self.token + "".join([str(x) for x in params])
         dados_fin = requests.get(dados).json()
+
+        if dados_fin['message'] == 'Token inválido':
+            print ("É preciso inserir um token válido!" +
+        "\nSolicite em www.iguana.incertezalab.com/documentation/index.php")
+            return None
+        elif dados_fin['message'] == 'Token nao encontrado!':
+            print ("Você precisa inserir um token!" +
+        "\nSolicite em www.iguana.incertezalab.com/documentation/index.php")
+            return None
+        
         dados_fin = pd.DataFrame(dados_fin['data'])    
         
+ 
+        if dados_fin.empty == True:
+                print ("Não há notícias com as especificações selecionadas.")
+                return None
+
         
         return dados_fin
 
@@ -95,9 +109,10 @@ class Iguana(object):
     
         url_base = 'http://iguana.incertezalab.com/incerteza?token='
         
-        assert(self.token is not None), "É preciso inserir um token valido! \n Solicite em www.iguana.incertezalab.com/documentation/index.php"
+        assert(self.token is not None), ("É preciso inserir um token valido!" +
+              "\n Solicite em www.iguana.incertezalab.com/documentation/index.php")
+        
         if fonte is None and datainicio is None and datafim is None and categoria is None:
-            
             dados = url_base + self.token
             dados_fin = requests.get(dados).json()
             
