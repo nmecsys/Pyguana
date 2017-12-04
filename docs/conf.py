@@ -22,6 +22,10 @@ import sys
 sys.path.insert(0, os.path.abspath('../pyguana'))
 
 
+from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
+
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -36,6 +40,20 @@ extensions = ['sphinx.ext.autodoc',
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+
+
+
+
+
+
+source_parsers = {
+   '.md': 'recommonmark.parser.CommonMarkParser',
+}
+source_suffix = ['.rst', '.md']
+
+
+
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:

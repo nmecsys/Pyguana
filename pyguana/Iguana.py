@@ -12,11 +12,19 @@ from pyguana import leitor
 
 
 '''
-    A função get permite que se faça uma requisição à API Iguana, desde que possuindo um token
-    válido, escolhendo todos os parâmetros que se deseja. Pode-se escolher a 'fonte' da notícia,
-    ou seja, o jornal; é também possível delimitar uma data de início de uma de fim para o retorno
-    das notícias e de que maneira ela foi categorizada pelo próprio jornal (em qual caderno a mesma
-    se encontra). Exemplos de categoria seriam 'política', 'economia' ou 'esportes'.
+    A classe `Iguana` é responsável por autorizar (ou não) o acesso do usuário à
+    API de notícias Iguana. Para acessar qualquer função pertencente a esta classe
+    exige-se primeiro o *input* de um token válido.
+    
+    A API Iguana é uma API de notícias criada pelo Núcleo de Métodos Estatísticos e
+    Computacionais (NMEC) pertencente à FGV/IBRE cuja base é composta por algo em torno
+    de 4 milhões de notícias dos principais jornais de diversas regiões do país.
+    
+    Ao efetuar uma requisição à API pode-se escolher a 'fonte' da notícia, ou seja, 
+    o jornal; é também possível delimitar uma data de início de uma de fim para o retorno
+    das notícias e de que maneira ela foi categorizada pelo próprio jornal (em qual 
+    caderno a mesma se encontra). Exemplos de categoria seriam 'política', 'economia' ou 
+    'esportes'.
     
 '''
 
@@ -106,6 +114,16 @@ class Iguana(object):
     
     def uncertainty_get(self, fonte=None, datainicio=None,
                            datafim=None, categoria=None, nmec=None):
+                               
+        '''
+        A função uncertainty_get permite que se faça uma requisição à API Iguana 
+        sobre as notícias relacionadas à incerteza mais especificamente. Esta função
+        atua de forma complementar e similar à função `get`, para um fim mais específico.
+        Novamente, ressalta-se que é obrigatório o uso de um token válido para se ter 
+        acesso aos dados.
+        
+        '''  
+        
     
         url_base = 'http://iguana.incertezalab.com/incerteza?token='
         
