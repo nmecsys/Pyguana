@@ -47,7 +47,15 @@ class Iguana(object):
     
     
     def get(self, fonte=None, datainicio=None, 
-               datafim=None, categoria=None, limite=None):
+               datafim=None, categoria=["Cotidiano", 
+               "Educacao", "Esporte", "Poder", "Mundo", 
+               "Ilustrada", "Mercado", "Ciencia", 
+               "Equilibrio", "Turismo", "BBC Brasil", 
+               "Tec", "Podcasts", "Veiculos", "Colunistas", 
+               "Opiniao","Comida", "Imoveis", "Negocios",
+               "Especial", "Equilibrio e Saude","Ambiente", 
+               "Empregos", "Folha Corrida"], 
+               limite=None):
     
         '''
         A função get permite que se faça uma requisição à API Iguana, desde que possuindo um token
@@ -113,7 +121,15 @@ class Iguana(object):
     
     
     def uncertainty_get(self, fonte=None, datainicio=None,
-                           datafim=None, categoria=None, nmec=None):
+                           datafim=None, categoria=["Cotidiano", 
+               "Educacao", "Esporte", "Poder", "Mundo", 
+               "Ilustrada", "Mercado", "Ciencia", 
+               "Equilibrio", "Turismo", "BBC Brasil", 
+               "Tec", "Podcasts", "Veiculos", "Colunistas", 
+               "Opiniao","Comida", "Imoveis", "Negocios",
+               "Especial", "Equilibrio e Saude","Ambiente", 
+               "Empregos", "Folha Corrida"], 
+                           nmec=None):
                                
         '''
         A função uncertainty_get permite que se faça uma requisição à API Iguana 
