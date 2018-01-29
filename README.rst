@@ -3,6 +3,10 @@ pyguana
 
 Pacote que conecta o Python a API Iguana
 
+Para instalar, execute:
+    >>> pip install git+https://github.com/nmecsys/pyguana.git
+
+
 Para utilizar, execute::
 
     >>> import pyguana
